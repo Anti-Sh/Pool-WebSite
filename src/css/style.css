@@ -11,6 +11,9 @@
 body{
     height: 100vh;
     min-width: 1100px;
+    width: 100vw;
+    flex-direction: row;
+    overflow-x: hidden;
 }
 
 .flex{
@@ -41,6 +44,32 @@ header nav{
     max-width: 500px;
     width: 100%;
     margin: 0 55px;
+    height: 100%;
+    vertical-align: middle;
+}
+header .nav-item{
+    position: relative;
+    height: 100%;
+    line-height: 54px;
+}
+header .nav-item::after{
+    bottom: 0px;
+    left: 50%;
+    position: absolute;
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    background: #e240b0;
+    transition: all .5s;
+}
+header .nav-item:hover::after{
+    width: 100%;
+    left: 0;
+    transition: all .5s;
+}
+header .nav-item:hover{
+    cursor: pointer;
 }
 
 .vermiddle{
@@ -71,6 +100,7 @@ header nav{
 #first-section .bottom-part{
     background-image: url("../img/backgrounds/background_01_bottom_part.png");
     background-position: center center;
+    background-repeat: no-repeat;
     height: 320px;
     width: 100%;
     
@@ -137,4 +167,20 @@ header nav{
     color: #fff;
     font-size: 22px;
     font-weight: 600;
+}
+
+/* RIGHT MENU */
+.main{
+    position: absolute;
+    width: 100vw;
+    left: 0;
+}
+aside{
+    position: absolute;
+    background-color: #e240b0;
+    height: 100vh;
+    width: 380px;
+    right: -380px;
+    top: 0;
+    display: none;
 }
