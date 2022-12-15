@@ -191,15 +191,56 @@ aside{
     top: 0;
     display: none;
 }
-
+aside div{
+    width: 100%;
+    text-align: center;
+}
+aside div h1{
+    font-size: 26px;
+    margin: 13px 0;
+}
+aside .reg_lbl{
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: 600;
+    display: block;
+    text-transform: uppercase;
+}
+aside input{
+    font-size: 20px;
+    background-color: #e240b0;
+    border: none;
+    border-bottom: 2px solid #1d1e21;
+    margin-bottom: 10px;
+}
+.frm-button{
+    display: block;
+    font-size: 26px;
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: 0px;
+    background-color: #1d1e21;
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 10px auto;
+}
+.form-desc{
+    font-weight: 500;
+}
+.form-desc b:hover{
+    cursor: pointer;
+}
 /* ABOUT */
-#about-page{
+#about-page,
+#abonement-page{
     max-width: 1610px;
     width: 100vw;
     margin: 70px auto;
     flex-wrap: wrap;
 }
-#about-page div.outer{
+#about-page div.outer,
+#abonement-page .outer{
     width: 50%;
     min-width: 800px;
     margin: 0 auto;
@@ -266,8 +307,11 @@ h1.header-adress{
 }
 .btn-wrapper{
     justify-content: flex-start;
+    margin-bottom: 36px;
 }
 .btn{
+    display: block;
+    text-decoration: none;
     font-size: 20px;
     width: 260px;
     text-align: center;
@@ -282,4 +326,81 @@ h1.header-adress{
     background-color: #fff;
     color: #1d1e21;
     border: 3px solid #1d1e21;
+}
+
+#abonement-page{
+    
+
+
+}
+
+.form-wrapper{
+    background-color: #FFCFE3;
+    border-radius: 85% 15% 88% 12% / 13% 90% 10% 87%;
+    text-align: center;
+    padding: 20px 0;
+}
+.form-wrapper form{
+    font-size: 23px;
+}
+.form-wrapper form select,
+.form-wrapper form input[type="date"]{
+    font-size: 22px;
+    border: none;
+    border-bottom: 3px solid #e240b0;
+    margin-bottom: 15px;
+    background-color: transparent;
+}
+.form-wrapper form .lbl{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    margin: 15px 0;
+    text-transform: uppercase;
+}
+.form-wrapper form span b{
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid #1d1e21;
+    border-radius: 50px;
+    padding: 1px 15px;
+    font-weight: 500;
+}
+.form-wrapper form span b:hover{
+    cursor: pointer;
+}
+#send_form{
+    display: block;
+    font-size: 26px;
+    padding: 10px 30px;
+    border-radius: 50px;
+    border: 0px;
+    background-color: #1d1e21;
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 10px auto;
+}
+#sport-section-wrapper{
+    margin: 0;
+    padding: 0;
+}
+
+#abonement-page .text-wrapper{
+    margin-bottom: 40px;
+}
+
+/* notification */
+.notification{
+    position: fixed;
+    width: 400px;
+    top: 70px;
+    padding: 15px;
+    background-color: #FFCFE3;
+    border-right: 4px solid #e240b0;
+}
+.notification p{
+    font-size: 18px;
+    font-weight: 500;
 }

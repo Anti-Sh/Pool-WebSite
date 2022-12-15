@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бассейн</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+    <div class="main">
+        <header class="flex">
+            <div class="header-logo">
+                <img src="src/img/logo.png" alt="aquatix logo">
+            </div>
+            <nav class="flex">
+                <a href="index.html" class="nav-item">ГЛАВНАЯ</a>
+                <a href="about.html" class="nav-item">О НАС</a>
+                <a href="#" class="nav-item">АБОНЕМЕНТЫ</a>
+                <a href="#" id="profile-btn" class="nav-item">ПРОФИЛЬ</a>
+            </nav>
+        </header>
+
+        <section class="flex" id="abonement-page">
+            <div class="text-wrapper outer">
+                <span class="tag">
+                    СОЗДАЙ СВОЙ АБОНЕМЕНТ
+                </span>
+                <h1 class="header-adress">
+                    Не подстраивайся ни под кого, настрой под себя
+                </h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum impedit tenetur dicta eius dolor labore.
+                </p>
+            </div>
+            <div class="form-wrapper outer">
+                <form action="" method="post">
+                    <span class="lbl">АБОНЕНТ</span>
+                    <select name="" id="">
+                        <option value="0">Иванов Иван Иванович</option>
+                    </select> 
+                    <span>или <b id="create_person">Создать</b></span> 
+                    <br>
+                    <span class="lbl">Срок действия абонемента:</span>
+                    <select name="tarrif" id="tarrif">
+                        <option value="0">День</option>
+                        <option value="1">Неделя</option>
+                        <option value="2">Месяц</option>
+                        <option value="3">3 месяца</option>
+                        <option value="4">6 месяца</option>
+                        <option value="5">Год</option>
+                    </select>
+                    <br>
+                    <span class="lbl">Хотите ли вы посещать спортивную секцию?</span>
+                    
+                    <input type="radio" name="isGroup" id="isGroup_yes">
+                    <label for="isGroup_yes">Да</label>
+                    <input type="radio" name="isGroup" checked id="isGroup_no">
+                    <label for="isGroup_no">Нет</label>
+                    <br>
+                    <div id="sport-section-wrapper" style="display:none;">
+                        <span class="lbl">Спортивная секция</span>
+                        <select name="sport_section" id="sport_section">
+                            <option value="0">Аквoаэробика</option>
+                            <option value="1">Дайвинг</option>
+                        </select>
+                    </div>
+                    <span class="lbl">Начало действия</span>
+                    <input type="date" name="start_date" id="start_date">
+
+                    <button id="send_form" type="submit">оформить</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <aside>
+        <div class="reg-wrapper" style="display:none;">
+            <h1>Регистрация</h1>
+            <form action="">
+                <span class="reg_lbl">e-mail</span>
+                <input type="email" name="remail" id="remail">
+                <span class="reg_lbl">пароль</span>
+                <input type="password" name="rpassword" id="rpassword">
+                <span class="reg_lbl">подтверждение пароля</span>
+                <input type="password" name="rpassword-confirm" id="rpassword-confirm">
+                <br>
+                <span class="form-desc">Если у вас уже есть аккаунт - <b id="switch-to-auth"><u>Авторизация</u></b></span>
+                <button type="submit" id="reg-sbm" class="frm-button">СОЗДАТЬ</button>
+            </form>
+        </div>
+        <div class="auth-wrapper">
+            <h1>Авторизация</h1>
+            <form action="">
+                <span class="reg_lbl">e-mail</span>
+                <input type="email" name="aemail" id="aemail">
+                <span class="reg_lbl">пароль</span>
+                <input type="password" name="apassword" id="apassword">
+                <br>
+                <span class="form-desc">Если у вас еще нет аккаунта - <b id="switch-to-reg"><u>Регистрация</u></b></span>
+                <button type="submit" id="auth-sbm" class="frm-button">войти</button>
+            </form>
+        </div>
+        <div class="create-person-wrapper" style="display: none;">
+            <h1>Создание абонента</h1>
+            <span class="reg_lbl">Фамилия</span>
+            <input type="text" name="sname" id="sname">
+            <span class="reg_lbl">Имя</span>
+            <input type="text" name="fname" id="fname">
+            <span class="reg_lbl">Отчество</span>
+            <input type="text" name="fatname" id="fatname">
+            <span class="reg_lbl">Дата рождения</span>
+            <input type="date" name="birthday" id="birthday">
+            <button type="submit" id="abonent-sbm" class="frm-button">создать</button>
+        </div>
+        <div class="profile-wrapper">
+            asdas
+        </div>
+    </aside>
+
+    <div class="notification" style="display: none;">
+        <h2>Привет</h2>
+        <p>У вас небольшая проблема.</p>
+    </div>
+
+    <script src="src/js/script.js"></script>
+</body>
+</html>
