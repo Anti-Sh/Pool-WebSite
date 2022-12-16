@@ -284,9 +284,6 @@ aside input{
     bottom: 0;
 }
 
-.text-wrapper{
-
-}
 .tag{
     font-size: 21px;
     margin-bottom: 0.8em;
@@ -326,12 +323,6 @@ h1.header-adress{
     background-color: #fff;
     color: #1d1e21;
     border: 3px solid #1d1e21;
-}
-
-#abonement-page{
-    
-
-
 }
 
 .form-wrapper{
