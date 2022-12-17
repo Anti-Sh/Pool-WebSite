@@ -14,6 +14,17 @@
             include "components/header.php";
         ?>
 
+        <section class="banner" id="about-page1">
+            <div class="header-wrapper">
+                <h1 class="only-border">О НАС</h1>
+                <h1 class="without-border">О НАС</h1>
+                <h1 class="only-border">О НАС</h1>
+            </div>
+            <div class="bottom-wave">
+                
+            </div>
+        </section>
+
         <section class="flex" id="about-page">
             <div class="text-wrapper outer">
                 <span class="tag">

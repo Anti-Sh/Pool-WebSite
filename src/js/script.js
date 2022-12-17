@@ -3,7 +3,8 @@
 $(function(){
     var isMenuOpened = false;
 
-    function asideToggle(){
+    function asideToggle(e){
+        e.preventDefault();
         if(!isMenuOpened){
             $(".main").animate({left: "-380px"});
             $("aside").show(0).animate({right: "0px"});
@@ -20,7 +21,7 @@ $(function(){
         }
     }
 
-    $('#profile-btn').on("click", () => asideToggle())
+    $('#profile-btn').on("click", (e) => asideToggle(e))
 
     $("#send_form").on("click", (e) => {
         e.preventDefault();
@@ -63,16 +64,16 @@ $(function(){
         }
     })
 
-    $("#create_person").on("click", () => {
+    $("#create_person").on("click", (e) => {
         if(isMenuOpened == false){
             $(".profile-wrapper").hide();
             $(".create-person-wrapper").show();
-            asideToggle();
+            asideToggle(e);
         }
         else{
             $(".profile-wrapper").show();
             $(".create-person-wrapper").hide();
-            asideToggle();
+            asideToggle(e);
         }
         
     })
