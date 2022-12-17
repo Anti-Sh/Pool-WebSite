@@ -10,17 +10,9 @@
 </head>
 <body>
     <div class="main">
-        <header class="flex">
-            <div class="header-logo">
-                <img src="src/img/logo.png" alt="aquatix logo">
-            </div>
-            <nav class="flex">
-                <a href="index.html" class="nav-item">ГЛАВНАЯ</a>
-                <a href="about.html" class="nav-item">О НАС</a>
-                <a href="services.html" class="nav-item">АБОНЕМЕНТЫ</a>
-                <a href="#" id="profile-btn" class="nav-item">ПРОФИЛЬ</a>
-            </nav>
-        </header>
+        <?php 
+            include "components/header.php";
+        ?>
 
         <section class="flex" id="about-page">
             <div class="text-wrapper outer">
@@ -34,7 +26,7 @@
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum impedit tenetur dicta eius dolor labore.
                 </p>
                 <div class="btn-wrapper flex">
-                    <a href="services.html" class="btn">
+                    <a href="services.php" class="btn">
                         АБОНЕМЕНТЫ
                     </a>
                     <a href="tel:+78006006006" class="btn white-btn">
@@ -55,9 +47,10 @@
         </section>
     </div>
 
-    <aside>
-
-    </aside>
+    <?php
+        include "components/aside.php";
+        include "components/notification.php";
+    ?>
 
     <script src="src/js/script.js"></script>
 </body>

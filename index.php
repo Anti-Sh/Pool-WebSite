@@ -10,17 +10,9 @@
 </head>
 <body>
     <div class="main">
-        <header class="flex">
-            <div class="header-logo">
-                <img src="src/img/logo.png" alt="aquatix logo">
-            </div>
-            <nav class="flex">
-                <a href="index.html" class="nav-item">ГЛАВНАЯ</a>
-                <a href="about.html" class="nav-item">О НАС</a>
-                <a href="services.html" class="nav-item">АБОНЕМЕНТЫ</a>
-                <a href="#" id="profile-btn" class="nav-item">ПРОФИЛЬ</a>
-            </nav>
-        </header>
+        <?php 
+            include "components/header.php";
+        ?>
 
         <section id="first-section">
             <div class="header-delta"></div>
@@ -49,9 +41,10 @@
         </section>
     </div>
 
-    <aside>
-
-    </aside>
+    <?php
+        include "components/aside.php";
+        include "components/notification.php";
+    ?>
 
     <script src="src/js/script.js"></script>
 </body>
