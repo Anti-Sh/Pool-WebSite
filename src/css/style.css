@@ -225,6 +225,9 @@ aside input{
     text-transform: uppercase;
     margin: 10px auto;
 }
+.frm-button:hover{
+    cursor: pointer;
+}
 .form-desc{
     font-weight: 500;
 }

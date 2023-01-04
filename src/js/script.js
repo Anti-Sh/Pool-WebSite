@@ -31,16 +31,105 @@ $(function(){
         
     $("#reg-sbm").on("click", (e) => {
         e.preventDefault();
-        // Регистрация AJAX
+        let email = $("#remail").val(),
+            password = $("#rpassword").val(),
+            password_confirm = $("#rpassword-confirm").val();
+        
+        $.ajax({
+            url: '../../core/signup.php',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                email: email,
+                password: password,
+                password_confirm: password_confirm                
+            },
+            success (data) {
+                if (data.status) {
+                    notification("Успешно", data.message);
+                } 
+                else {
+                    notification("Ошибка", data.message);
+                }
+            },
+            error(data){
+                console.log(data.responseText);
+            }
+        });
     })
 
     $("#auth-sbm").on("click", (e) => {
         e.preventDefault();
+
+        let email = $("#aemail").val(),
+            password = $("#apassword").val();
+
+        $.ajax({
+            url: '../../core/signin.php',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                email: email,
+                password: password            
+            },
+            success (data) {
+                if (data.status) {
+                    location.reload();
+                } 
+                else {
+                    notification("Ошибка", data.message);
+                }
+            },
+            error(data){
+                console.log(data.responseText);
+            }
+        });
+        // Авторизация AJAX
+    })
+
+    $("#profile-sbm").on("click", (e) => {
+        e.preventDefault();
+
+        $.ajax({
+            url: '../../core/logout.php',
+            type: 'POST',
+            complete (){
+                location.reload();
+            }
+        });
         // Авторизация AJAX
     })
 
     $("#abonent-sbm").on("click", (e) => {
         e.preventDefault();
+
+        let sname = $("#sname").val(),
+            fname = $("#fname").val(),
+            fatname = $("#fatname").val(),
+            birthday = $("#birthday").val();
+
+        $.ajax({
+            url: '../../core/create_person.php',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                sname: sname,
+                fname: fname,
+                fatname: fatname,
+                birthday: birthday,
+            },
+            success (data) {
+                if (data.status) {
+                    location.reload();
+                } 
+                else {
+                    notification("Ошибка", data.message);
+                }
+            },
+            error(data){
+                console.log(data.responseText);
+            }
+        });
         // Создание абонента AJAX
     })
 

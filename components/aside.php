@@ -1,4 +1,7 @@
 <aside>
+    <?php
+    if(!isset($_SESSION["user"])):
+    ?>
     <div class="reg-wrapper" style="display:none;">
         <h1>Регистрация</h1>
         <form action="">
@@ -25,6 +28,7 @@
             <button type="submit" id="auth-sbm" class="frm-button">войти</button>
         </form>
     </div>
+    <? else: ?>
     <div class="create-person-wrapper" style="display: none;">
         <h1>Создание абонента</h1>
         <span class="reg_lbl">Фамилия</span>
@@ -38,6 +42,22 @@
         <button type="submit" id="abonent-sbm" class="frm-button">создать</button>
     </div>
     <div class="profile-wrapper">
-        asdas
+        <h1>Профиль</h1>
+        <span class="reg_lbl">e-mail</span>
+        <input type="text" name="pemail" id="pemail" disabled value="<?=$_SESSION["user"]["email"]?>">
+        <button type="submit" id="profile-sbm" class="frm-button">выйти</button>
+        <?
+        $created_by = $_SESSION['user']['id'];
+        $persons = mysqli_query($connect, "SELECT * FROM `persons` WHERE `created_by`='$created_by'");
+        if(mysqli_num_rows($persons) > 0):
+        ?>
+            <h1>Личности</h1>
+            <?while ($row = mysqli_fetch_assoc($persons)):?>
+            <input type="text" name="pemail" id="pemail" disabled value="<?=$row['second_name'] . " " . $row['first_name'] . " " . $row['father_name']?>">
+        <? 
+            endwhile;
+        endif; 
+        ?>
     </div>
+    <? endif; ?>
 </aside>
