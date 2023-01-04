@@ -213,6 +213,18 @@ aside input{
     border-bottom: 2px solid #1d1e21;
     margin-bottom: 10px;
 }
+aside .person-outer{
+    width: 100%;
+    margin-bottom: 10px;
+}
+aside .person{
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+aside .person:hover{
+    cursor: pointer;
+}
 .frm-button{
     display: block;
     font-size: 26px;

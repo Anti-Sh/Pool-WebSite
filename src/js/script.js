@@ -133,6 +133,76 @@ $(function(){
         // Создание абонента AJAX
     })
 
+    $("#abonent-back").on("click", (e) => {
+        e.preventDefault();
+        $(".create-person-wrapper").hide();
+        $(".profile-wrapper").show();
+    })
+
+    $("#create-new-person").on("click", (e) => {
+        e.preventDefault();
+        $(".profile-wrapper").hide();
+        $(".create-person-wrapper").show();
+
+    })
+
+    $("#person-delete").on("click", (e) => {
+        e.preventDefault();
+
+        let id = $(e.currentTarget).data("id");
+
+        $.ajax({
+            url: '../../core/delete_person.php',
+            type: 'POST',
+            data: {
+                id: id
+            },
+            complete(){
+                location.reload();
+            }
+        });
+    })
+    
+    $("#person-back").on("click", () => personBack())
+
+    function personBack(){
+        $(".person-wrapper").hide();
+        $(".profile-wrapper").show();
+    }
+
+    $(".person").on("click", (e) => {
+        let id = $(e.currentTarget).data("id");
+        
+        $.ajax({
+            url: '../../core/get_person.php',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                id: id
+            },
+            success (data) {
+                if (data.status) {
+                    $("#psname").val(data.sname);
+                    $("#pfname").val(data.fname);
+                    $("#pfatname").val(data.fatname);
+                    $("#pbirthday").val(data.birthday);
+                    $("#person-delete").data("id", id);
+                    $(".profile-wrapper").hide();
+                    $(".person-wrapper").show();
+                } 
+                else {
+                    notification("Ошибка", data.message);
+                }
+            },
+            error(data){
+                console.log(data.responseText);
+            }
+        });
+
+        $(".profile-wrapper").hide();
+        $(".person-wrapper").show();
+    })
+
     $("#isGroup_no").on("click", () => {
         $("#sport-section-wrapper").hide(500);
     })

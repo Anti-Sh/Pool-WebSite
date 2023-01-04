@@ -40,24 +40,39 @@
         <span class="reg_lbl">Дата рождения</span>
         <input type="date" name="birthday" id="birthday">
         <button type="submit" id="abonent-sbm" class="frm-button">создать</button>
+        <button type="button" id="abonent-back" class="frm-button">назад</button>
     </div>
     <div class="profile-wrapper">
         <h1>Профиль</h1>
         <span class="reg_lbl">e-mail</span>
         <input type="text" name="pemail" id="pemail" disabled value="<?=$_SESSION["user"]["email"]?>">
         <button type="submit" id="profile-sbm" class="frm-button">выйти</button>
+        <h1>Личности</h1>
         <?
         $created_by = $_SESSION['user']['id'];
         $persons = mysqli_query($connect, "SELECT * FROM `persons` WHERE `created_by`='$created_by'");
         if(mysqli_num_rows($persons) > 0):
+            while ($row = mysqli_fetch_assoc($persons)):
         ?>
-            <h1>Личности</h1>
-            <?while ($row = mysqli_fetch_assoc($persons)):?>
-            <input type="text" name="pemail" id="pemail" disabled value="<?=$row['second_name'] . " " . $row['first_name'] . " " . $row['father_name']?>">
-        <? 
-            endwhile;
-        endif; 
-        ?>
+                <div class="person-outer">
+                    <span class="person" data-id="<?=$row["id"]?>"><?=$row['second_name'] . " " . $row['first_name'] . " " . $row['father_name']?></span>
+                </div>
+            <? endwhile; ?>
+        <? endif; ?>
+        <button type="button" id="create-new-person" class="frm-button">создать</button>
+    </div>
+    <div class="person-wrapper" style="display: none;">
+        <h1>Личность</h1>
+        <span class="reg_lbl">Фамилия</span>
+        <input type="text" name="psname" id="psname" disabled>
+        <span class="reg_lbl">Имя</span>
+        <input type="text" name="pfname" id="pfname" disabled>
+        <span class="reg_lbl">Отчество</span>
+        <input type="text" name="pfatname" id="pfatname" disabled>
+        <span class="reg_lbl">Дата рождения</span>
+        <input type="date" name="pbirthday" id="pbirthday" disabled>
+        <button type="submit" id="person-delete" class="frm-button" data-id="">УДАЛИТЬ</button>
+        <button type="button" id="person-back" class="frm-button">назад</button>
     </div>
     <? endif; ?>
 </aside>
