@@ -47,7 +47,7 @@
         <span class="reg_lbl">e-mail</span>
         <input type="text" name="pemail" id="pemail" disabled value="<?=$_SESSION["user"]["email"]?>">
         <button type="submit" id="profile-sbm" class="frm-button">выйти</button>
-        <h1>Личности</h1>
+        <h1>Абоненты</h1>
         <?
         $created_by = $_SESSION['user']['id'];
         $persons = mysqli_query($connect, "SELECT * FROM `persons` WHERE `created_by`='$created_by'");
@@ -62,7 +62,7 @@
         <button type="button" id="create-new-person" class="frm-button">создать</button>
     </div>
     <div class="person-wrapper" style="display: none;">
-        <h1>Личность</h1>
+        <h1>Абонент</h1>
         <span class="reg_lbl">Фамилия</span>
         <input type="text" name="psname" id="psname" disabled>
         <span class="reg_lbl">Имя</span>
@@ -73,6 +73,22 @@
         <input type="date" name="pbirthday" id="pbirthday" disabled>
         <button type="submit" id="person-delete" class="frm-button" data-id="">УДАЛИТЬ</button>
         <button type="button" id="person-back" class="frm-button">назад</button>
+        <h1 id="ab-after">Абонементы</h1>
+
+        <button type="button" id="create-new-abonement" class="frm-button">создать</button>
+    </div>
+    <div class="abonement-wrapper" style="display: none;">
+        <h1>Абонемент</h1>
+        <span class="reg_lbl">Спортивная секция или нет</span>
+        <input type="text" name="asection" id="asection" disabled>
+        <span class="reg_lbl">Срок действия</span>
+        <input type="text" name="atarrif" id="atarrif" disabled>
+        <span class="reg_lbl">Дата начала</span>
+        <input type="date" name="adatestart" id="adatestart" disabled>
+        <span class="reg_lbl">Дата конца</span>
+        <input type="date" name="adateend" id="adateend" disabled>
+        <button type="submit" id="abonement-delete" class="frm-button" data-id="">УДАЛИТЬ</button>
+        <button type="button" id="abonement-back" class="frm-button">назад</button>
     </div>
     <? endif; ?>
 </aside>

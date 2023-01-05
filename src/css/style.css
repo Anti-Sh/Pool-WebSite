@@ -213,16 +213,19 @@ aside input{
     border-bottom: 2px solid #1d1e21;
     margin-bottom: 10px;
 }
-aside .person-outer{
+aside .person-outer,
+aside .abonement-outer{
     width: 100%;
     margin-bottom: 10px;
 }
-aside .person{
+aside .person,
+aside .abonement{
     font-size: 20px;
     font-weight: 500;
     text-decoration: underline;
 }
-aside .person:hover{
+aside .person:hover,
+aside .abonement:hover{
     cursor: pointer;
 }
 .frm-button{

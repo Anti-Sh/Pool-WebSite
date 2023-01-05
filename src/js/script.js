@@ -26,7 +26,42 @@ $(function(){
     $("#send_form").on("click", (e) => {
         e.preventDefault();
         //Создание абонемента AJAX
-        notification("Ошибка", "Функция не доступна в данный момент!")
+
+        if($("#persons_form").length == 0){
+            notification("Ошибка", "Сначала создайте нового абонента!");
+            return;
+        }
+        
+        let person_id = $("#persons_form").val(),
+            tarrif_id = $("#tarrif").val(),
+            isGroup = $('input[name="isGroup"]:checked').val(),
+            section_id = $("#sport_section").val(),
+            start_date = $("#start_date").val();
+
+        $.ajax({
+            url: '../../core/create_abonnement.php',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                person_id: person_id,
+                tarrif_id: tarrif_id,
+                isGroup: isGroup,
+                section_id: section_id,
+                start_date: start_date,
+            },
+            success (data) {
+                if (data.status) {
+                    notification("Успешно", data.message);
+                } 
+                else {
+                    notification("Ошибка", data.message);
+                }
+            },
+            error(data){
+                console.log(data.responseText);
+            }
+        });
+        
     })
         
     $("#reg-sbm").on("click", (e) => {
@@ -189,6 +224,11 @@ $(function(){
                     $("#person-delete").data("id", id);
                     $(".profile-wrapper").hide();
                     $(".person-wrapper").show();
+
+                    data.abonnements.forEach(a => {
+                        let elem = '<div class="abonement-outer"><span class="abonement" data-id="' + a.id + '">Абонемент #' + a.id + '</span></div>';
+                        $("#ab-after").after($(elem));
+                    });
                 } 
                 else {
                     notification("Ошибка", data.message);
@@ -201,6 +241,10 @@ $(function(){
 
         $(".profile-wrapper").hide();
         $(".person-wrapper").show();
+    })
+
+    $("#create-new-abonement").on("click", () => {
+        document.location.replace("services.php#abonement-page");
     })
 
     $("#isGroup_no").on("click", () => {
@@ -235,6 +279,63 @@ $(function(){
             asideToggle(e);
         }
         
+    })
+
+    $(".person-wrapper").on("click", ".abonement", (e) => {
+        let id = $(e.currentTarget).data("id");
+        console.log(id);
+        $.ajax({
+            url: '../../core/get_abonement.php',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                id: id
+            },
+            success (data) {
+                if (data.status) {
+                    console.log(data.abonemment);
+                    $(".abonement-wrapper h1").text("Абонемент #" + id);
+                    $("#asection").val(data.abonemment.isGroup == "0" ? "Нет" : data.abonemment.section);
+                    $("#atarrif").val(data.abonemment.tariff);
+                    $("#adatestart").val(data.abonemment.start_date);
+                    $("#adateend").val(data.abonemment.end_date);
+
+                    $("#abonement-delete").data("id", id);
+                    $(".person-wrapper").hide(500);
+                    $(".abonement-wrapper").show(500);
+                                    } 
+                else {
+                    notification("Ошибка", data.message);
+                }
+            },
+            error(data){
+                console.log(data.responseText);
+            }
+        });
+    })
+
+    $("#abonement-back").on("click", (e) => {
+        e.preventDefault();
+        $(".abonement-wrapper").hide(500);
+        $(".person-wrapper").show(500);
+
+    })
+
+    $("#abonement-delete").on("click", (e) => {
+        e.preventDefault();
+
+        let id = $(e.currentTarget).data("id");
+
+        $.ajax({
+            url: '../../core/delete_abonement.php',
+            type: 'POST',
+            data: {
+                id: id
+            },
+            complete(){
+                location.reload();
+            }
+        });
     })
 
     function notification(header, text){
