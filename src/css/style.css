@@ -263,6 +263,9 @@ aside .abonement:hover{
     min-width: 800px;
     margin: 0 auto;
 }
+#abonement-page .text-wrapper p{
+    font-size: 21px;
+}
 .map-wrapper{
     position: relative;
 }

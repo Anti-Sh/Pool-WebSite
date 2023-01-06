@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Бассейн</title>
     <link rel="stylesheet" href="src/css/style.css">
+    <link rel="shortcut icon" href="src/img/logo.ico" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 <body>

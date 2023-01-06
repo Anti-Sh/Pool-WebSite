@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Бассейн</title>
     <link rel="stylesheet" href="src/css/style.css">
+    <link rel="shortcut icon" href="src/img/logo.ico" type="image/x-icon">
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 <body>
@@ -34,7 +35,7 @@
                     Не подстраивайся ни под кого, настрой под себя
                 </h1>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum impedit tenetur dicta eius dolor labore.
+                    Осуществите выбор подходящих вам параметров и нажмите "Создать". Во всплывающем уведомлении будет указана стоимость абонемента и способ связи. Если вы передумаете, то в профиле можно удалить созданные абонементы.
                 </p>
             </div>
             <div class="form-wrapper outer">
