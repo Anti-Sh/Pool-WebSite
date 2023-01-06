@@ -35,6 +35,7 @@ $(function(){
         let person_id = $("#persons_form").val(),
             tarrif_id = $("#tarrif").val(),
             isGroup = $('input[name="isGroup"]:checked').val(),
+            dpw = $("#days_per_week").val(),
             section_id = $("#sport_section").val(),
             start_date = $("#start_date").val();
 
@@ -46,6 +47,7 @@ $(function(){
                 person_id: person_id,
                 tarrif_id: tarrif_id,
                 isGroup: isGroup,
+                dpw: dpw,
                 section_id: section_id,
                 start_date: start_date,
             },
@@ -295,6 +297,9 @@ $(function(){
                     $("#atarrif").val(data.abonemment.tariff);
                     $("#adatestart").val(data.abonemment.start_date);
                     $("#adateend").val(data.abonemment.end_date);
+                    $("#adpw").val(data.abonemment.dpw);
+                    $("#acost").val(data.abonemment.cost);
+
 
                     $("#abonement-delete").data("id", id);
                     $(".person-wrapper").hide(500);
@@ -332,6 +337,18 @@ $(function(){
                 location.reload();
             }
         });
+    })
+    
+    $("#tarrif").on("change", (e) => {
+        if($(e.currentTarget).val() == 1){
+            $(".dpw").hide(500);
+            $("#days_per_week").val(1);
+        }
+        else{
+            $(".dpw").show(500);
+        }
+
+
     })
 
     function notification(header, text){

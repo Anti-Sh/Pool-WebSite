@@ -63,7 +63,7 @@
                         <b id="create_person">Создать</b>
                     </span> 
                     <br>
-                    <span class="lbl">Срок действия абонемента:</span>
+                    <span class="lbl">Срок действия абонемента</span>
                     <select name="tarrif" id="tarrif">
                         <?
                         $tarrifs = mysqli_query($connect, "SELECT * FROM `tariffs`");
@@ -75,6 +75,18 @@
                         ?>
                     </select>
                     <br>
+                    <span class="lbl dpw" style="display: none;">Количество занятий в неделю</span>
+                    <select name="days_per_week" class="dpw" id="days_per_week" style="display: none;">
+                        <?
+                        $days = ["1 день", "2 дня", "3 дня", "4 дня", "5 дней"];
+                        for($i = 1; $i<6; $i++):
+                        ?>
+                            <option value="<?=$i?>"><?=$days[$i-1]?></option>
+                        <?
+                        endfor;
+                        ?>
+                    </select>
+                    <br class="dpw" style="display: none;">
                     <span class="lbl">Хотите ли вы посещать спортивную секцию?</span>
                     
                     <input type="radio" name="isGroup" id="isGroup_yes" value="1">

@@ -83,10 +83,14 @@
         <input type="text" name="asection" id="asection" disabled>
         <span class="reg_lbl">Срок действия</span>
         <input type="text" name="atarrif" id="atarrif" disabled>
+        <span class="reg_lbl">Количество дней в неделю</span>
+        <input type="text" name="adpw" id="adpw" disabled>
         <span class="reg_lbl">Дата начала</span>
         <input type="date" name="adatestart" id="adatestart" disabled>
         <span class="reg_lbl">Дата конца</span>
         <input type="date" name="adateend" id="adateend" disabled>
+        <span class="reg_lbl">Стоимость</span>
+        <input type="text" name="acost" id="acost" disabled>
         <button type="submit" id="abonement-delete" class="frm-button" data-id="">УДАЛИТЬ</button>
         <button type="button" id="abonement-back" class="frm-button">назад</button>
     </div>
