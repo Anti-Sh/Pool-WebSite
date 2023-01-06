@@ -222,9 +222,9 @@ $(function(){
                     $("#pfatname").val(data.fatname);
                     $("#pbirthday").val(data.birthday);
                     $("#person-delete").data("id", id);
-                    $(".profile-wrapper").hide();
-                    $(".person-wrapper").show();
-
+                    $(".profile-wrapper").hide(500);
+                    $(".person-wrapper").show(500);
+                    $(".abonement-outer").remove();
                     data.abonnements.forEach(a => {
                         let elem = '<div class="abonement-outer"><span class="abonement" data-id="' + a.id + '">Абонемент #' + a.id + '</span></div>';
                         $("#ab-after").after($(elem));
@@ -238,9 +238,6 @@ $(function(){
                 console.log(data.responseText);
             }
         });
-
-        $(".profile-wrapper").hide();
-        $(".person-wrapper").show();
     })
 
     $("#create-new-abonement").on("click", () => {
@@ -283,7 +280,7 @@ $(function(){
 
     $(".person-wrapper").on("click", ".abonement", (e) => {
         let id = $(e.currentTarget).data("id");
-        console.log(id);
+        
         $.ajax({
             url: '../../core/get_abonement.php',
             type: 'POST',
@@ -293,7 +290,6 @@ $(function(){
             },
             success (data) {
                 if (data.status) {
-                    console.log(data.abonemment);
                     $(".abonement-wrapper h1").text("Абонемент #" + id);
                     $("#asection").val(data.abonemment.isGroup == "0" ? "Нет" : data.abonemment.section);
                     $("#atarrif").val(data.abonemment.tariff);
@@ -303,7 +299,7 @@ $(function(){
                     $("#abonement-delete").data("id", id);
                     $(".person-wrapper").hide(500);
                     $(".abonement-wrapper").show(500);
-                                    } 
+                } 
                 else {
                     notification("Ошибка", data.message);
                 }

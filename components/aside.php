@@ -79,7 +79,7 @@
     </div>
     <div class="abonement-wrapper" style="display: none;">
         <h1>Абонемент</h1>
-        <span class="reg_lbl">Спортивная секция или нет</span>
+        <span class="reg_lbl">Спортивная секция</span>
         <input type="text" name="asection" id="asection" disabled>
         <span class="reg_lbl">Срок действия</span>
         <input type="text" name="atarrif" id="atarrif" disabled>
