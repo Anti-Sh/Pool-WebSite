@@ -22,6 +22,8 @@ $(function(){
     }
 
     $('#profile-btn').on("click", (e) => asideToggle(e))
+    
+    $('#first-section .btn').on("click", (e) => asideToggle(e))
 
     $("#send_form").on("click", (e) => {
         e.preventDefault();
